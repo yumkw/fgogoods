@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101a33">
+  <title>FGO展 グッズ購入リスト</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="eyebrow">Fate/Grand Order展 -星見の回廊-</p>
+      <h1>グッズ購入リスト</h1>
+      <p class="hero__description">購入する商品にチェックを入れ、数量とメモを入力してください。</p>
+      <a class="official-link" href="https://exhibition.fate-go.jp/goods/" target="_blank" rel="noopener noreferrer">
+        公式グッズページを開く ↗
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="toolbar" aria-label="商品絞り込み">
+      <label class="search-box">
+        <span>商品検索</span>
+        <input id="searchInput" type="search" placeholder="商品名で検索">
+      </label>
+      <div class="filters" role="group" aria-label="販売区分">
+        <button class="filter-button is-active" type="button" data-filter="all">すべて</button>
+        <button class="filter-button" type="button" data-filter="通常販売">通常</button>
+        <button class="filter-button" type="button" data-filter="会場後期発売">後期</button>
+        <button class="filter-button" type="button" data-filter="selected">選択済み</button>
+      </div>
+    </section>
+
+    <section class="summary-card" aria-live="polite">
+      <div>
+        <span class="summary-label">選択商品</span>
+        <strong id="selectedCount">0点</strong>
+      </div>
+      <div>
+        <span class="summary-label">合計金額</span>
+        <strong id="totalPrice">¥0</strong>
+      </div>
+    </section>
+
+    <section id="productList" class="product-list" aria-label="商品一覧"></section>
+    <p id="emptyMessage" class="empty-message" hidden>条件に一致する商品はありません。</p>
+  </main>
+
+  <footer class="sticky-footer">
+    <div class="sticky-footer__total">
+      <span>合計</span>
+      <strong id="footerTotal">¥0</strong>
+    </div>
+    <button id="copyButton" class="primary-button" type="button">購入リストをコピー</button>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
